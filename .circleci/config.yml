@@ -12,13 +12,15 @@ jobs:
     resource_class: medium+
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    environment:
+      SLEEP_SECONDS: 100
     steps:
       - checkout
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
       - run:
-          command: sleep 120
+          command: sleep $SLEEP_SECONDS
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
